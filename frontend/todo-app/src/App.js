@@ -7,6 +7,7 @@ import FirstComponent, {
 } from "./components/learning-examples/FirstComponent";
 import SecondComponent from "./components/learning-examples/SecondComponent";
 import ThirdComponentNekoDrugoIme from "./components/learning-examples/ThirdComponent";
+import FourthComponent from "./components/learning-examples/FourthComponent";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <SecondComponent />
       <ThirdComponentNekoDrugoIme />
       <DummyComponent />
+      <FourthComponent />
     </div>
   );
 }
