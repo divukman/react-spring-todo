@@ -9,17 +9,29 @@ import SecondComponent from "./components/learning-examples/SecondComponent";
 import ThirdComponentNekoDrugoIme from "./components/learning-examples/ThirdComponent";
 import FourthComponent from "./components/learning-examples/FourthComponent";
 
+import Counter from "./components/counter/Counter";
+
 function App() {
   return (
     <div className="App">
-      <h1>Todo application</h1>
-      <FirstComponent />
-      <SecondComponent />
-      <ThirdComponentNekoDrugoIme />
-      <DummyComponent />
-      <FourthComponent />
+      <Counter />
     </div>
   );
 }
 
 export default App;
+
+class LearningComponents extends Component {
+  render() {
+    return (
+      <div className="LearningComponents">
+        <h1>Todo application</h1>
+        <FirstComponent />
+        <SecondComponent />
+        <ThirdComponentNekoDrugoIme />
+        <DummyComponent />
+        <FourthComponent />
+      </div>
+    );
+  }
+}
