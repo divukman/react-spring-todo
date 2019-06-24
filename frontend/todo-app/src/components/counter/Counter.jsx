@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./Counter.css";
+import PropTypes from "prop-types";
 
 class Counter extends Component {
   constructor() {
     super();
+
     this.state = {
       counter: 0
     };
@@ -14,7 +16,7 @@ class Counter extends Component {
   render() {
     return (
       <div className="counter">
-        <button onClick={this.increment}> + 1</button>
+        <button onClick={this.increment}> + {this.props.by} </button>
         <span className="count"> {this.state.counter} </span>
       </div>
     );
@@ -22,9 +24,17 @@ class Counter extends Component {
 
   increment() {
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + this.props.by
     });
   }
 }
+
+Counter.defaultProps = {
+  by: 1
+};
+
+Counter.propTypes = {
+  by: PropTypes.number
+};
 
 export default Counter;
