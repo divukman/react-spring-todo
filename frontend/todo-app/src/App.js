@@ -9,11 +9,15 @@ import ThirdComponentNekoDrugoIme from "./components/learning-examples/ThirdComp
 import FourthComponent from "./components/learning-examples/FourthComponent";
 
 import Counter from "./components/counter/Counter";
+import TodoApp from "./components/todo/TodoApp";
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      {
+        //<Counter />
+      }
+      <TodoApp />
     </div>
   );
 }
