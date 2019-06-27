@@ -8,6 +8,9 @@ class TodoApp extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={LoginComponent} />
+            {
+              //exact vjerojatno ne treba ovdje vise, kad ima swtich
+            }
             <Route path="/login" component={LoginComponent} />
             <Route path="/welcome/:name" component={WelcomeComponent} />
             <Route component={ErrorComponent} />
