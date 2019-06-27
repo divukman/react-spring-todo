@@ -1,13 +1,26 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class TodoApp extends Component {
   render() {
     return (
       <div className="TodoApp">
-        My Todo Application
-        <LoginComponent />
+        <Router>
+          <Switch>
+            <Route path="/" exact component={LoginComponent} />
+            <Route path="/login" component={LoginComponent} />
+            <Route path="/welcome/:name" component={WelcomeComponent} />
+            <Route component={ErrorComponent} />
+          </Switch>
+        </Router>
       </div>
     );
+  }
+}
+
+class WelcomeComponent extends Component {
+  render() {
+    return <div> Welcome {this.props.match.params.name} </div>;
   }
 }
 
@@ -35,8 +48,9 @@ class LoginComponent extends Component {
       this.state.username === "dimitar" &&
       this.state.password === "password"
     ) {
-      this.setState({ showSuccessMessage: true });
-      this.setState({ hasLoginFailed: false });
+      this.props.history.push(`/welcome/${this.state.username}`);
+      //   this.setState({ showSuccessMessage: true });
+      //   this.setState({ hasLoginFailed: false });
     } else {
       this.setState({ showSuccessMessage: false });
       this.setState({ hasLoginFailed: true });
@@ -66,6 +80,10 @@ class LoginComponent extends Component {
       </div>
     );
   }
+}
+
+function ErrorComponent() {
+  return <div>An error occured.</div>;
 }
 
 //
