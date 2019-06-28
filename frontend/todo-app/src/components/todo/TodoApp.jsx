@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import AuthenticationService from "./AuthenticationService";
 
 class TodoApp extends Component {
   render() {
@@ -75,7 +76,7 @@ class ListTodosComponent extends Component {
         {" "}
         <h1>List Todos </h1>
         <div className="container">
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th>Descrption</th>
@@ -131,7 +132,11 @@ class HeaderComponent extends Component {
               </Link>
             </li>
             <li>
-              <Link className="nav-link" to="/logout">
+              <Link
+                className="nav-link"
+                onClick={AuthenticationService.logout}
+                to="/logout"
+              >
                 Logout
               </Link>
             </li>
@@ -204,6 +209,10 @@ class LoginComponent extends Component {
       this.state.username === "dimitar" &&
       this.state.password === "password"
     ) {
+      AuthenticationService.registerSuccessfulLogin(
+        this.state.username,
+        this.state.password
+      );
       this.props.history.push(`/welcome/${this.state.username}`);
       //   this.setState({ showSuccessMessage: true });
       //   this.setState({ hasLoginFailed: false });
