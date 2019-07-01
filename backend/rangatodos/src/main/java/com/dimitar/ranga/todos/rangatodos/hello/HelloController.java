@@ -1,4 +1,4 @@
-package com.dimitar.ranga.todos.rangatodos;
+package com.dimitar.ranga.todos.rangatodos.hello;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

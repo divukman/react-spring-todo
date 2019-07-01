@@ -1,4 +1,4 @@
-package com.dimitar.ranga.todos.rangatodos;
+package com.dimitar.ranga.todos.rangatodos.hello;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
