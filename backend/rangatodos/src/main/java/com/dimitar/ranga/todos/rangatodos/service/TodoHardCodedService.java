@@ -12,7 +12,7 @@ import java.util.Optional;
 public class TodoHardCodedService {
 
     private static List<Todo> todos = new ArrayList<Todo>();
-    private static int counter = 1;
+    private static int counter = 0;
 
     static {
         todos.add(new Todo(counter++, "dimitar", "Learn to dance", new Date(), false));
@@ -20,6 +20,12 @@ public class TodoHardCodedService {
         todos.add(new Todo(counter++, "dimitar", "Learn to do nothing", new Date(), false));
         todos.add(new Todo(counter++, "dimitar", "Learn to do something", new Date(), false));
         todos.add(new Todo(counter++, "dimitar", "Learn to learn", new Date(), false));
+
+        todos.add(new Todo(counter++, "dimitar", "Go hiking", new Date(), false));
+        todos.add(new Todo(counter++, "dimitar", "Play PS4", new Date(), false));
+        todos.add(new Todo(counter++, "dimitar", "Sleep enough", new Date(), false));
+        todos.add(new Todo(counter++, "dimitar", "Meet with friends", new Date(), false));
+        todos.add(new Todo(counter++, "dimitar", "Relax", new Date(), false));
     }
 
     public List<Todo> findAll() {
