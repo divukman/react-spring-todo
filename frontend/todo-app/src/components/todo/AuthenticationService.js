@@ -13,6 +13,12 @@ class AuthenticationService {
   isUserLoggedIn() {
     return sessionStorage.getItem(AUTHENTICATED_USER) !== null;
   }
+
+  getLoggedInUsername() {
+    return sessionStorage.getItem(AUTHENTICATED_USER)
+      ? sessionStorage.getItem(AUTHENTICATED_USER)
+      : "";
+  }
 }
 
 export default new AuthenticationService();
