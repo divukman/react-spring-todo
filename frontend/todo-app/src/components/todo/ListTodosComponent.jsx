@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoDataService from "../../api/todo/TodoDataService";
 import AuthenticationService from "./AuthenticationService";
+import moment from "moment";
 
 class ListTodosComponent extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class ListTodosComponent extends Component {
 
     this.deleteTodoClicked = this.deleteTodoClicked.bind(this);
     this.updateTodoClicked = this.updateTodoClicked.bind(this);
+    this.addTodoClicked = this.addTodoClicked.bind(this);
   }
 
   componentDidMount() {
@@ -46,8 +48,12 @@ class ListTodosComponent extends Component {
 
   updateTodoClicked(id) {
     const username = AuthenticationService.getLoggedInUsername();
-    alert("kliknut sam:" + username + " " + id);
     this.props.history.push(`/todos/${id}`);
+  }
+
+  addTodoClicked() {
+    const username = AuthenticationService.getLoggedInUsername();
+    this.props.history.push("/todos/-1");
   }
 
   render() {
@@ -75,7 +81,7 @@ class ListTodosComponent extends Component {
                   <tr key={todo.id}>
                     <td>{todo.description}</td>
                     <td>{todo.done.toString()}</td>
-                    <td>{todo.targetDate.toString()}</td>
+                    <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
                     <td>
                       <button
                         onClick={() => this.updateTodoClicked(todo.id)}
@@ -97,6 +103,14 @@ class ListTodosComponent extends Component {
               })}
             </tbody>
           </table>
+          <div className="row">
+            <button
+              onClick={() => this.addTodoClicked()}
+              className="btn btn-success"
+            >
+              Add
+            </button>
+          </div>
         </div>
       </div>
     );

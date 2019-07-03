@@ -15,17 +15,17 @@ public class TodoHardCodedService {
     private static int counter = 0;
 
     static {
-        todos.add(new Todo(counter++, "dimitar", "Learn to dance", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Learn to play games", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Learn to do nothing", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Learn to do something", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Learn to learn", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Learn to dance", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Learn to play games", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Learn to do nothing", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Learn to do something", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Learn to learn", new Date(), false));
 
-        todos.add(new Todo(counter++, "dimitar", "Go hiking", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Play PS4", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Sleep enough", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Meet with friends", new Date(), false));
-        todos.add(new Todo(counter++, "dimitar", "Relax", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Go hiking", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Play PS4", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Sleep enough", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Meet with friends", new Date(), false));
+        todos.add(new Todo(++counter, "dimitar", "Relax", new Date(), false));
     }
 
     public List<Todo> findAll() {
@@ -40,5 +40,23 @@ public class TodoHardCodedService {
         } else {
             return null;
         }
+    }
+
+
+    public Todo getById(final long id) {
+        return todos.stream().filter(todo->todo.getId()==id).findFirst().orElse(null);
+    }
+
+    public Todo save(final Todo todo) {
+        if (todo.getId() == -1 || todo.getId() == 0) {
+            //new
+            todo.setId(++counter);
+            todos.add(todo);
+        } else {
+            deleteById(todo.getId());
+            todos.add(todo);
+        }
+
+        return todo;
     }
 }

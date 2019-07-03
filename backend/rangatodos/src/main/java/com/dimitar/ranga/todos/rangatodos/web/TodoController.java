@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,30 @@ public class TodoController {
        //@todo exception handling, throw from service etc... here just return OK
         //return new ResponseEntity<>(todo != null, HttpStatus.OK);
         return todo != null ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/users/{username}/todos/{id}")
+    public ResponseEntity<?> getTodo(@PathVariable final String username, @PathVariable final Long id) {
+        final Todo todo = todoHardCodedService.getById(id);
+
+        return todo != null ? new ResponseEntity<>(todo, HttpStatus.OK) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/users/{username}/todos/{id}")
+    public ResponseEntity<?> updateTodo(@PathVariable final String username,@PathVariable final Long id, @RequestBody final Todo todo) {
+        final Todo updatedTodo = todoHardCodedService.save(todo);
+
+        return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
+    }
+
+    @PostMapping("/users/{username}/todos")
+    public ResponseEntity<?> createTodo(@PathVariable final String username, @RequestBody final Todo todo) {
+        final Todo createdTodo = todoHardCodedService.save(todo);
+
+        final URI resourceURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
+
+        //return new ResponseEntity<>(resourceURL, HttpStatus.OK);
+        return ResponseEntity.created(resourceURI).build();
     }
 
 }

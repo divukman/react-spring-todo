@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import TodoDataService from "../../api/todo/TodoDataService";
+import AuthenticationService from "./AuthenticationService";
 
 class TodoComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: 1,
-      description: "Learn Forms",
+      id: this.props.match.params.id,
+      description: "",
       targetDate: moment(new Date()).format("YYYY-MM-DD")
     };
 
@@ -16,8 +18,36 @@ class TodoComponent extends Component {
     this.validate = this.validate.bind(this);
   }
 
+  componentDidMount() {
+    if (this.state.id !== -1) {
+      const username = AuthenticationService.getLoggedInUsername();
+      TodoDataService.retrieveTodo(username, this.state.id).then(response =>
+        this.setState({
+          description: response.data.description,
+          targetDate: moment(response.data.targetDate).format("YYYY-MM-DD")
+        })
+      );
+    }
+  }
+
   onSubmit(values) {
-    console.log(values);
+    const username = AuthenticationService.getLoggedInUsername();
+
+    const todo = {
+      id: this.state.id,
+      description: values.description,
+      targetDate: values.targetDate
+    };
+
+    if (this.state.id !== -1) {
+      TodoDataService.updateTodo(username, this.state.id, todo).then(res =>
+        this.props.history.push("/todos")
+      );
+    } else {
+      TodoDataService.createTodo(username, todo).then(res =>
+        this.props.history.push("/todos")
+      );
+    }
   }
 
   validate(values) {
@@ -52,6 +82,7 @@ class TodoComponent extends Component {
             validate={this.validate}
             validateOnChange={false}
             validateOnBlur={false}
+            enableReinitialize={true}
           >
             {props => {
               return (
