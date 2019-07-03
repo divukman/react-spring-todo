@@ -2,11 +2,22 @@ import axios from "axios";
 const AUTHENTICATED_USER = "authenticatedUser"; //nemam pojma kako public static final stavit u JSu
 
 class AuthenticationService {
+  executeBasicAuthenticationService(username, password) {
+    return axios.get("http://localhost:8080/basicauth", {
+      headers: {
+        authorization: this.createBasicAuthToken(username, password)
+      }
+    });
+  }
+
+  createBasicAuthToken(username, password) {
+    return "Basic " + window.btoa(username + ":" + password);
+  }
+
   registerSuccessfulLogin(username, password) {
     console.log("Successful login.");
     sessionStorage.setItem(AUTHENTICATED_USER, username);
-    const basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
-    this.setupAxiosInterceptors(basicAuthHeader);
+    this.setupAxiosInterceptors(this.createBasicAuthToken(username, password));
   }
 
   logout() {
