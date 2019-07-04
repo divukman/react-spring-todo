@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "df364820-f343-4969-ac42-123844923046",
+		"name": "TODO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Todos JPA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get todo by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNzd29yZA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get todo by Id JPA",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/jpa/users/dimitar/todos/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jpa",
+						"users",
+						"dimitar",
+						"todos",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Todo by ID JPA",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/jpa/users/dimitar/todos/1001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jpa",
+						"users",
+						"dimitar",
+						"todos",
+						"1001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"username\": \"dimitar\",\n    \"description\": \"Watch Twitch\",\n    \"targetDate\": \"2019-07-03T10:23:07.038+0000\",\n    \"done\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos",
+						"2"
+					]
+				},
+				"description": "Update todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Update todo JPA",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1002,\n    \"username\": \"dimitar\",\n    \"description\": \"Watch Twitch\",\n    \"targetDate\": \"2019-07-03T10:23:07.038+0000\",\n    \"done\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jpa/users/dimitar/todos/10002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jpa",
+						"users",
+						"dimitar",
+						"todos",
+						"10002"
+					]
+				},
+				"description": "Update todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": -1,\n    \"username\": \"dimitar\",\n    \"description\": \"Watch Twitch Again\",\n    \"targetDate\": \"2019-07-03T10:23:07.038+0000\",\n    \"done\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/dimitar/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"dimitar",
+						"todos"
+					]
+				},
+				"description": "Update todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo JPA",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU2MjgzNTc5NywiaWF0IjoxNTYyMjMwOTk3fQ.0vsMeRVxUmaTNdQLKzCWukmiYcjIMv2NhG_sm9dYsW70_uszSejlg5zwVHTHIaLs1bt_FMjnF6YR5JE0ylD-Uw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dimitar\",\n    \"description\": \"Watch Stranger Things on Netflix\",\n    \"targetDate\": \"2019-07-03T10:23:07.038+0000\",\n    \"done\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jpa/users/dimitar/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jpa",
+						"users",
+						"dimitar",
+						"todos"
+					]
+				},
+				"description": "Update todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"in28minutes\",\n\t\"password\": \"dummy\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
