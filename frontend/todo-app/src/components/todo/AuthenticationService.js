@@ -1,9 +1,11 @@
 import axios from "axios";
-const AUTHENTICATED_USER = "authenticatedUser"; //nemam pojma kako public static final stavit u JSu
+import { API_URL } from "../../Constants";
+
+export const USERNAME_SESSION_ATTRIBUTE_NAME = "authenticatedUser";
 
 class AuthenticationService {
   executeBasicAuthenticationService(username, password) {
-    return axios.get("http://localhost:8080/basicauth", {
+    return axios.get(`${API_URL}/basicauth`, {
       headers: {
         authorization: this.createBasicAuthToken(username, password)
       }
@@ -11,7 +13,7 @@ class AuthenticationService {
   }
 
   executeJWTAuthenticationService(username, password) {
-    return axios.post("http://localhost:8080/authenticate", {
+    return axios.post(`${API_URL}/authenticate`, {
       username,
       password
     });
@@ -23,7 +25,7 @@ class AuthenticationService {
 
   registerSuccessfulLogin(username, password) {
     console.log("Successful login.");
-    sessionStorage.setItem(AUTHENTICATED_USER, username);
+    sessionStorage.setItem(USERNAME_SESSION_ATTRIBUTE_NAME, username);
     this.setupAxiosInterceptors(this.createBasicAuthToken(username, password));
   }
 
@@ -33,21 +35,21 @@ class AuthenticationService {
 
   registerSuccessfulLoginForJWT(username, token) {
     console.log("Successful login.");
-    sessionStorage.setItem(AUTHENTICATED_USER, username);
+    sessionStorage.setItem(USERNAME_SESSION_ATTRIBUTE_NAME, username);
     this.setupAxiosInterceptors(this.createJWTAuthToken(token));
   }
 
   logout() {
-    sessionStorage.removeItem(AUTHENTICATED_USER);
+    sessionStorage.removeItem(USERNAME_SESSION_ATTRIBUTE_NAME);
   }
 
   isUserLoggedIn() {
-    return sessionStorage.getItem(AUTHENTICATED_USER) !== null;
+    return sessionStorage.getItem(USERNAME_SESSION_ATTRIBUTE_NAME) !== null;
   }
 
   getLoggedInUsername() {
-    return sessionStorage.getItem(AUTHENTICATED_USER)
-      ? sessionStorage.getItem(AUTHENTICATED_USER)
+    return sessionStorage.getItem(USERNAME_SESSION_ATTRIBUTE_NAME)
+      ? sessionStorage.getItem(USERNAME_SESSION_ATTRIBUTE_NAME)
       : "";
   }
 
