@@ -1,4 +1,4 @@
-package com.dimitar.ranga.todos.rangatodos.web;
+package com.dimitar.ranga.todos.rangatodos.config;
 
 import com.dimitar.ranga.todos.rangatodos.config.AuthenticationBean;
 import org.springframework.web.bind.annotation.CrossOrigin;

@@ -21,14 +21,30 @@ class LoginComponent extends Component {
   }
 
   loginClicked() {
-    AuthenticationService.executeBasicAuthenticationService(
+    // AuthenticationService.executeBasicAuthenticationService(
+    //   this.state.username,
+    //   this.state.password
+    // )
+    //   .then(result => {
+    //     AuthenticationService.registerSuccessfulLogin(
+    //       this.state.username,
+    //       this.state.password
+    //     );
+    //     this.props.history.push(`/welcome/${this.state.username}`);
+    //   })
+    //   .catch(error => {
+    //     this.setState({ showSuccessMessage: false });
+    //     this.setState({ hasLoginFailed: true });
+    //   });
+
+    AuthenticationService.executeJWTAuthenticationService(
       this.state.username,
       this.state.password
     )
       .then(result => {
-        AuthenticationService.registerSuccessfulLogin(
+        AuthenticationService.registerSuccessfulLoginForJWT(
           this.state.username,
-          this.state.password
+          result.data.token
         );
         this.props.history.push(`/welcome/${this.state.username}`);
       })
