@@ -11,7 +11,8 @@ class TodoComponent extends Component {
     this.state = {
       id: this.props.match.params.id,
       description: "",
-      targetDate: moment(new Date()).format("YYYY-MM-DD")
+      targetDate: moment(new Date()).format("YYYY-MM-DD"),
+      done: false
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,7 +25,8 @@ class TodoComponent extends Component {
       TodoDataService.retrieveTodo(username, this.state.id).then(response =>
         this.setState({
           description: response.data.description,
-          targetDate: moment(response.data.targetDate).format("YYYY-MM-DD")
+          targetDate: moment(response.data.targetDate).format("YYYY-MM-DD"),
+          done: response.data.done
         })
       );
     }
@@ -36,7 +38,8 @@ class TodoComponent extends Component {
     const todo = {
       id: this.state.id,
       description: values.description,
-      targetDate: values.targetDate
+      targetDate: values.targetDate,
+      done: this.state.done
     };
 
     if (this.state.id !== -1) {

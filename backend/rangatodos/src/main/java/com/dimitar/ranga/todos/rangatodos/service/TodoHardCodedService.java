@@ -12,7 +12,7 @@ import java.util.Optional;
 public class TodoHardCodedService {
 
     private static List<Todo> todos = new ArrayList<Todo>();
-    private static int counter = 0;
+    private static long counter = 0;
 
     static {
         todos.add(new Todo(++counter, "dimitar", "Learn to dance", new Date(), false));
